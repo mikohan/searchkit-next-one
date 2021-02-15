@@ -3,7 +3,7 @@ import { MultiMatchQuery, SearchkitSchema } from '@searchkit/schema';
 
 const searchkitConfig = {
   host: 'http://localhost:9200',
-  index: 'movies',
+  index: 'imdb_movies',
   hits: {
     fields: [],
   },
@@ -33,7 +33,11 @@ const server = new ApolloServer({
       }
 
       type HitFields {
-        root: String
+        title: String
+        writers: [String]
+        actors: [String]
+        plot: String
+        poster: String
       }
 
       type ResultHit implements SKHit {
